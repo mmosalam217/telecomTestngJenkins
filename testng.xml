@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Testing Telecommunication Provider">
+    <test name="Smartphones">
+     	<parameter name="model" value="iPhone 13" />
+    	<parameter name="color" value="(PRODUCT) RED" />
+        <parameter name="capacity" value="256 GB" />
+        <parameter name="personFirstname" value="Luffy" />
+        <parameter name="personLastname" value="D Monkey" />
+        <parameter name="zip" value="80331" />
+        <parameter name="city" value="München" />
+        <parameter name="street" value="Münzstraße" />
+        <parameter name="house" value="5" />
+        <parameter name="birthday" value="21" />
+        <parameter name="birthmonth" value="07" />
+        <parameter name="birthyear" value="1992" />
+        <parameter name="email" value="lufffy33442@gmail.com" />
+        <parameter name="phone" value="01514144106" />        
+        <parameter name="nationality" value="Ägypten" />
+        <parameter name="kennwort" value="test1234" />
+        <parameter name="ident" value="shop" />
+        
+         <classes>
+             <class name="telecom.mobilfunk.SmartphoneTest"/>
+          </classes>
+     </test> 
+</suite> 

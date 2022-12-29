@@ -18,6 +18,9 @@ pipeline{
 	}
 	
 	post{
-		echo "Publish test reports..."
+		always{
+		    echo "Publish test reports..."
+		}
+
 	}
 }

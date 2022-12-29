@@ -3,14 +3,14 @@ pipeline{
 	stages{
 		stage("Build Test requirements"){
 			steps{
-			    			echo "Building requirements...."
+			    sh "mvn clean test -DskipTests"
 			}
 
 		}
 		
 		stage("Run tests"){
 			steps{
-			    echo "Running tests"
+			    sh "java -cp telecom.jar:libs/* org.testng.TestNG testng.xml"
 			}
 
 		}

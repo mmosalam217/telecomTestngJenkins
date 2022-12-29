@@ -7,14 +7,14 @@ pipeline{
 	stages{
 		stage("Build Test requirements"){
 			steps{
-			    sh "mvn clean test -DskipTests"
+			    bat "mvn clean test -DskipTests"
 			}
 
 		}
 		
 		stage("Run tests"){
 			steps{
-			    sh "java -cp telecom.jar:libs/* org.testng.TestNG testng.xml"
+			    bat "java -cp telecom.jar:libs/* org.testng.TestNG testng.xml"
 			}
 
 		}

@@ -8,6 +8,7 @@ pipeline{
 	stages{
 		stage("Build Test requirements"){
 			steps{
+				echo ${env.JAVA_HOME}
 			    bat "mvn clean package -DskipTests"
 			}
 
@@ -15,7 +16,7 @@ pipeline{
 		
 		stage("Run tests"){
 			steps{
-			    bat "java -cp telecom.jar:libs/* org.testng.TestNG testng.xml"
+			    bat "java -cp telecom*.jar:libs/* org.testng.TestNG testng.xml"
 			}
 
 		}

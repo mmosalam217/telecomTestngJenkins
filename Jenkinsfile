@@ -16,7 +16,7 @@ pipeline{
 		
 		stage("Run tests"){
 			steps{
-			    bat "java -cp telecom*.jar:libs/* org.testng.TestNG testng.xml"
+			    bat "java -cp target/telecom*.jar:libs/* org.testng.TestNG testng.xml"
 			}
 
 		}

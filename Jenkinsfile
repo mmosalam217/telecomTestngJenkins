@@ -6,17 +6,9 @@ pipeline{
 	}
 
 	stages{
-		stage("Build Test requirements"){
+		stage("Execute tests.."){
 			steps{
-				echo "${env.JAVA_HOME}"
-			    bat "mvn clean package -DskipTests"
-			}
-
-		}
-		
-		stage("Run tests"){
-			steps{
-			    bat "java -cp target/telecom*.jar:libs/* org.testng.TestNG testng.xml"
+			    bat "mvn clean test"
 			}
 
 		}
@@ -25,7 +17,15 @@ pipeline{
 	
 	post{
 		always{
-		    echo "Publish test reports..."
+		   script {
+              allure([
+                includeProperties: false,
+                jdk: '',
+                properties: [],
+                reportBuildPolicy: 'ALWAYS',
+                results: [[path: '/allure-results']]
+              ])
+            }
 		}
 
 	}

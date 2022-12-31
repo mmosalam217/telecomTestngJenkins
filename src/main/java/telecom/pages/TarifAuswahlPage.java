@@ -17,7 +17,7 @@ public class TarifAuswahlPage {
 	
 	private By headerText = By.xpath("//span[contains(@class, 'brix-basket-offer__headline')]");
 	private By offeredTarif = By.xpath("//div[contains(@class, 'brix-offer-price__tariff-info')]/h3");
-	private By weiterZumAngebotBtn = By.cssSelector("button[title='zum Warenkorb']");
+	private By weiterZumAngebotBtn = By.xpath("//button[contains(., 'Weiter mit diesem Angebot')]");
 	
 	public TarifAuswahlPage(WebDriver driver) {
 		this.driver = driver;

@@ -9,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.qameta.allure.Step;
 import telecom.util.TestConfiguration;
 
 public class VFHomePage {
@@ -17,7 +18,7 @@ public class VFHomePage {
 	private TestConfiguration config = new TestConfiguration();
 	private WebDriverWait wait;
 	
-	private By accept_cookies_btn = By.xpath("//div[contains(@class, 'dip-consent-btn red-btn')]");
+	private By accept_cookies_btn = By.xpath("//button[contains(@class, 'dip-consent-main-text-btn')]");
 	private By main_nav_mobilfunk = By.linkText("Mobilfunk");
 	private By sec_nav_mobilfunk = By.xpath("//ul[contains(@class, 'list-nav-sec')][1]");
 	private By smartphone_submenu = By.xpath("//div[contains(@class, 'nav-secondary-sub nav-display')]");
@@ -30,13 +31,14 @@ public class VFHomePage {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(config.getDriverExplicitWait()));
 	}
 	
+	@Step("Accept Cookies")
 	public void acceptCookies() {
 		var acceptBtn = driver.findElement(accept_cookies_btn);
 		wait.until(ExpectedConditions.visibilityOf(acceptBtn));
 		acceptBtn.click();
 	}
 	
-	
+	@Step("Navigate to smartphone page")
 	public SmartphonePage navigateToSmartphone(String smartphone_model) {
 		WebElement mobilfunk = driver.findElement( main_nav_mobilfunk);
 		Actions actions = new Actions(driver);

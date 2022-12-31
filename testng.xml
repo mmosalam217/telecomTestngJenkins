@@ -3,7 +3,7 @@
 <suite name="Testing Telecommunication Provider">
     <test name="Smartphones">
      	<parameter name="model" value="iPhone 13" />
-    	<parameter name="color" value="(PRODUCT) RED" />
+    	<parameter name="color" value="Blau" />
         <parameter name="capacity" value="256 GB" />
         <parameter name="personFirstname" value="Luffy" />
         <parameter name="personLastname" value="D Monkey" />

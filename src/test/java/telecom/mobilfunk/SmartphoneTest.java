@@ -18,7 +18,7 @@ public class SmartphoneTest extends BaseTest {
 		homePage = new VFHomePage(driver);
 	}
 
-	@Test()
+	@Test(description="Test e2e smartphone order process")
 	@Parameters({"model", "color", "capacity", "personFirstname", "personLastname", 
 		"zip", "city", "street", "house", "birthday", "birthmonth", "birthyear", 
 		"email", "phone", "nationality", "kennwort", "ident"})

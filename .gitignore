@@ -2,5 +2,5 @@
 .classpath
 target/
 .project
-allure-reports/
+allure-results/
 test-output/

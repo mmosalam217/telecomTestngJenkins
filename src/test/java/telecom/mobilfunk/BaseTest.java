@@ -4,12 +4,12 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import telecom.intern.annotations.Chrome;
+import telecom.intern.annotations.Edge;
 import telecom.util.TestConfiguration;
 
 public class BaseTest {
@@ -18,9 +18,13 @@ public class BaseTest {
 	private TestConfiguration config = new TestConfiguration();
 	
 	@BeforeClass()
+	@Chrome()
 	public void setup() {
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		//ChromeOptions opts = new ChromeOptions();
+		//opts.addArguments("--remote-allow-origins=*");
+		//opts.addArguments("--headless");
+		//opts.addArguments("window-size=1200,1100");
+		//driver = new ChromeDriver(opts);
 		driver.get(config.getApplicationUrl());
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(config.getDriverImplicitWait()));
 		driver.manage().window().maximize();
@@ -28,6 +32,6 @@ public class BaseTest {
 	
 	@AfterClass()
 	public void teardown() {
-		if(driver != null) driver.close();
+		if(driver != null) driver.quit();
 	}
 }

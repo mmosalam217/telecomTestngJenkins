@@ -1,42 +1,38 @@
 package telecom.pages;
 
-import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.qameta.allure.Step;
 
 
-import telecom.util.TestConfiguration;
 
-public class TarifAuswahlPage {
-	private WebDriver driver;
-	private WebDriverWait wait;
-	private TestConfiguration config = new TestConfiguration();
-	
-	private By headerText = By.xpath("//span[contains(@class, 'brix-basket-offer__headline')]");
-	private By offeredTarif = By.xpath("//div[contains(@class, 'brix-offer-price__tariff-info')]/h3");
-	private By weiterZumAngebotBtn = By.xpath("//button[contains(., 'Weiter mit diesem Angebot')]");
+
+public class TarifAuswahlPage extends BasePage{
+	private By headerText = By.xpath("//div[@id='item-summary-card']//h4");
+	private By offeredTarif = By.xpath("//div[@id=\"tariff-details-offer-price\"]//h3");
+	private By weiterZumAngebotBtn = By.xpath("//div[@id=\"tariff-details-offer-price\"]//button");
 	
 	public TarifAuswahlPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
-		wait = new WebDriverWait(driver, Duration.ofSeconds(config.getDriverImplicitWait()));
 	}
 	
-	public String getBasketHeaderText() {
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(headerText)));
-		return driver.findElement(headerText).getText();
+	@Step("Get displayed header text in basket")
+	public String getBasketHeaderText() throws Exception {
+		return this.findElement(headerText).getText();
 	}
 	
-	public String getOfferedTarif() {
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(offeredTarif)));
-		return driver.findElement(offeredTarif).getText();
+	@Step("Get offered tariff name")
+	public String getOfferedTarif() throws Exception {
+		return this.findElement(offeredTarif).getText();
 	}
 	
-	public WarenkorbPage weiterZumAngebot() {
-		driver.findElement(weiterZumAngebotBtn).click();
-		return new WarenkorbPage(driver);
+	@Step("Click 'Weiter zum Angebot'")
+	public TarifExtrasPage weiterZumAngebot() throws Exception {
+		this.clickElement(weiterZumAngebotBtn);
+		return new TarifExtrasPage(driver);
 	}
 	
 }

@@ -11,14 +11,14 @@
     <parameter name="personLastname" value="D Monkey"/>
     <parameter name="house" value="5"/>
     <parameter name="personFirstname" value="Luffy"/>
-    <parameter name="capacity" value="256 GB"/>
+    <parameter name="capacity" value="128 GB"/>
     <parameter name="birthmonth" value="07"/>
     <parameter name="nationality" value="Ägypten"/>
     <parameter name="phone" value="01514144106"/>
     <parameter name="street" value="Münzstraße"/>
     <parameter name="model" value="iPhone 13"/>
     <parameter name="kennwort" value="test1234"/>
-    <parameter name="email" value="lufffy33442@gmail.com"/>
+    <parameter name="email" value="paulo.maldini457@gmail.com"/>
     <classes>
       <class name="telecom.mobilfunk.SmartphoneTest">
         <methods>

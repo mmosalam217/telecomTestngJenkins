@@ -4,7 +4,7 @@
     <test name="Smartphones">
      	<parameter name="model" value="iPhone 13" />
     	<parameter name="color" value="Blau" />
-        <parameter name="capacity" value="256 GB" />
+        <parameter name="capacity" value="128 GB" />
         <parameter name="personFirstname" value="Luffy" />
         <parameter name="personLastname" value="D Monkey" />
         <parameter name="zip" value="80331" />
@@ -14,7 +14,7 @@
         <parameter name="birthday" value="21" />
         <parameter name="birthmonth" value="07" />
         <parameter name="birthyear" value="1992" />
-        <parameter name="email" value="lufffy33442@gmail.com" />
+        <parameter name="email" value="paulo.maldini457@gmail.com" />
         <parameter name="phone" value="01514144106" />        
         <parameter name="nationality" value="Ägypten" />
         <parameter name="kennwort" value="test1234" />

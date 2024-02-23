@@ -1,0 +1,5 @@
+<aspectj>
+	<aspects>
+		<aspect name="telecom.intern.aspects.WebDriverAspect"></aspect>
+	</aspects>
+</aspectj>

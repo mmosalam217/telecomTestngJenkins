@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import telecom.pages.CartPage;
 import telecom.pages.TarifAuswahlPage;
 import telecom.pages.VFHomePage;
-import telecom.pages.WarenkorbPage;
+import telecom.pages.TarifExtrasPage;
 
 public class SmartphoneTest extends BaseTest {
 	private VFHomePage homePage;
@@ -26,28 +26,28 @@ public class SmartphoneTest extends BaseTest {
 									String personFirstname, String personLastname, String zip, 
 									String city, String street, String house, 
 									String birthday, String birthmonth, String birthyear, 
-									String email, String phone, String nationality, String kennwort, String ident) throws InterruptedException  {
+									String email, String phone, String nationality, String kennwort, String ident) throws Exception  {
 		homePage.acceptCookies();
 		var smartphonePage = homePage.navigateToSmartphone(model);
 		Assert.assertTrue(smartphonePage.getDeviceNameFromHeader().contains(model));
 		smartphonePage.pickColor(color);
 		smartphonePage.pickCapacity(capacity);
-		String offerPrice = smartphonePage.getOfferPrice();
+		//String offerPrice = smartphonePage.getOfferPrice();
 		TarifAuswahlPage tarifauswahlPage = smartphonePage.toTarifAuswahl();
 		
 		String auswahl_header = tarifauswahlPage.getBasketHeaderText();
 		Assert.assertEquals(auswahl_header, String.format("%s | %s | %s", model, color, capacity));
 		String offeredTarif = tarifauswahlPage.getOfferedTarif();
-		WarenkorbPage warenkorb = tarifauswahlPage.weiterZumAngebot();
+		TarifExtrasPage warenkorb = tarifauswahlPage.weiterZumAngebot();
 		
-		String displayedTarif = warenkorb.getDisplayedTarif();
+		//String displayedTarif = warenkorb.getDisplayedTarif();
 		CartPage cart = warenkorb.toCart();
 		Assert.assertTrue(cart.getProductName().contains(offeredTarif));
-		cart.clickWeiterOhneLogin();
+		//cart.clickWeiterOhneLogin();
 		cart.enterPersonData(personFirstname, personLastname, zip, city, street, house, phone, 
 				birthday, birthmonth, birthyear, nationality, kennwort, email);
 		cart.chooseIdentMethod(ident);
-		cart.searchStore(zip);
+		cart.searchStoreByZip(zip);
 	}
 
 }

@@ -1,9 +1,0 @@
-telecom\pages\SmartphonePage.class
-telecom\pages\TarifAuswahlPage.class
-telecom\pages\TarifExtrasPage.class
-telecom\pages\VFHomePage.class
-telecom\util\PageUtil.class
-telecom\util\Log.class
-telecom\util\TestConfiguration.class
-telecom\pages\CartPage.class
-telecom\pages\BasePage.class
